@@ -3,9 +3,20 @@ import { Layout, Row, Col, Typography, Grid, Divider, Space, Input, Button, Tool
 import TextArea from "antd/es/input/TextArea";
 import { BoldOutlined, CopyOutlined, DeleteOutlined, DownloadOutlined, ItalicOutlined, LinkOutlined, OrderedListOutlined, StrikethroughOutlined, UnderlineOutlined, UnorderedListOutlined } from "@ant-design/icons";
 import MDResult from "../components/MDResult";
+import { useDispatch, useSelector } from "react-redux";
 const { Content } = Layout;
 
 const MarkdownWriter = () => {
+    const dispatch = useDispatch();
+    const text = useSelector(state => state.md);
+
+    const updateTextArea = e => {
+        dispatch({
+            type: 'md/update',
+            payload: e.target.value
+        })
+    }
+
     return (
         <Content 
             className='md-writer' 
@@ -59,7 +70,13 @@ const MarkdownWriter = () => {
                                 </Space.Compact>
                             </div>
                         </div>
-                        <TextArea placeholder="Write here and use the buttons on the top!" style={{height: 'calc(100vh - 190px)'}} showCount/>
+                        <TextArea 
+                            placeholder="Write here and use the buttons on the top!"
+                            style={{height: 'calc(100vh - 190px)'}}
+                            value={text}
+                            onChange={e => updateTextArea(e)}
+                            showCount={true}
+                        />
                     </Col>
                     <Col span={50} style={{width: '50%', height: 'calc(100% - 200px)', margin: '20px 0 0 0'}}>
                     <div style={{display: 'flex', justifyContent: 'space-between', alignItems: 'center', margin: '0 0 20px 0'}}>

@@ -4,7 +4,7 @@ const MDSlice = createSlice({
     name: 'md',
     initialState: "",
     reducers: {
-        update: (state, action) => ({ ...state, state: action.payload}) 
+        update: (state, action) => action.payload 
     }
 })
 
