@@ -11,9 +11,10 @@ const MarkdownWriter = () => {
             className='md-writer' 
             style={{
                 width: '100vw',
-                height: '100vh',
+                height: 'calc(100vh - 64px)',
                 padding: '0 50px',
-                backgroundColor: 'white'
+                backgroundColor: 'white',
+                overflow: 'hidden'
             }}>
                 {/* <Typography.Title>Markdown Writer</Typography.Title>
                 <Divider /> */}
@@ -25,7 +26,7 @@ const MarkdownWriter = () => {
                         height: '100%'
                     }}
                 >
-                    <Col span={50} style={{width: '50%', height: 'calc(100% - 200px)', margin: '20px 0 0 0'}}>
+                    <Col span={50} style={{width: '50%', height: 'calc(100vw - 200px)', margin: '20px 0 0 0'}}>
                         <div style={{display: 'flex', justifyContent: 'space-between', alignItems: 'center', margin: '0 0 20px 0'}}>
                             <div>
                                 <Typography.Title level={2} style={{margin: '0'}}>Your Text</Typography.Title>
@@ -46,7 +47,7 @@ const MarkdownWriter = () => {
                                 </Space.Compact>
                             </div>
                         </div>
-                        <TextArea placeholder="Write here and use the buttons on the top!" style={{height: '100%'}} showCount/>
+                        <TextArea placeholder="Write here and use the buttons on the top!" style={{height: 'calc(100vh - 190px)'}} showCount/>
                     </Col>
                     <Col span={50} style={{width: '50%', height: 'calc(100% - 200px)', margin: '20px 0 0 0'}}>
                     <div style={{display: 'flex', justifyContent: 'space-between', alignItems: 'center', margin: '0 0 20px 0'}}>
@@ -58,7 +59,7 @@ const MarkdownWriter = () => {
                                 <Button icon={<DownloadOutlined />}>Download File</Button>
                             </div>
                         </div>
-                        <MDResult />
+                        <MDResult/>
                     </Col>
                 </Row>
         </Content>
