@@ -2,6 +2,7 @@ import React from "react";
 import { Layout, Row, Col, Typography, Grid, Divider, Space, Input, Button, Tooltip } from 'antd';
 import TextArea from "antd/es/input/TextArea";
 import { BoldOutlined, CopyOutlined, DownloadOutlined, ItalicOutlined, LinkOutlined, OrderedListOutlined, StrikethroughOutlined, UnderlineOutlined, UnorderedListOutlined } from "@ant-design/icons";
+import MDResult from "../components/MDResult";
 const { Content } = Layout;
 
 const MarkdownWriter = () => {
@@ -57,7 +58,7 @@ const MarkdownWriter = () => {
                                 <Button icon={<DownloadOutlined />}>Download File</Button>
                             </div>
                         </div>
-                        
+                        <MDResult />
                     </Col>
                 </Row>
         </Content>

@@ -4,6 +4,7 @@ import './styles/index.css';
 import App from './App';
 import { createHashRouter, Route, RouterProvider } from 'react-router-dom';
 import MarkdownWriter from './routes/MarkdownWriter';
+import Help from './routes/Help';
 import About from './routes/About';
 
 const router = createHashRouter([
@@ -14,6 +15,10 @@ const router = createHashRouter([
       {
         path: '/writer',
         element: <MarkdownWriter />
+      },
+      {
+        path: "/help",
+        element: <Help />
       },
       {
         path: '/about',

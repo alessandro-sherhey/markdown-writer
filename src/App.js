@@ -38,7 +38,7 @@ const App = () => {
             </Menu.Item>
 
             <Menu.Item key="help" icon={<QuestionOutlined />}>
-              What's Markdown?
+              <NavLink to="/help">What's Markdown?</NavLink>
             </Menu.Item>
 
             <Menu.Item key="about" icon={<InfoOutlined />}>
