@@ -7,9 +7,9 @@ const addMarkdownItem = (item) => {
         case 'strikethrough':
             return `~~ ~~`
         case 'unorderedlist':
-            return `-`
+            return `-   `
         case 'orderedlist':
-            return `1.`
+            return `1.  `
         case 'link':
             return `[]()`
         default:
