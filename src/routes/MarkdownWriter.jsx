@@ -1,7 +1,7 @@
 import React from "react";
-import { Layout, Row, Col, Typography, Grid, Divider, Space, Input, Button } from 'antd';
+import { Layout, Row, Col, Typography, Grid, Divider, Space, Input, Button, Tooltip } from 'antd';
 import TextArea from "antd/es/input/TextArea";
-import { BoldOutlined, ItalicOutlined, LinkOutlined, OrderedListOutlined, StrikethroughOutlined, UnderlineOutlined, UnorderedListOutlined } from "@ant-design/icons";
+import { BoldOutlined, CopyOutlined, DownloadOutlined, ItalicOutlined, LinkOutlined, OrderedListOutlined, StrikethroughOutlined, UnderlineOutlined, UnorderedListOutlined } from "@ant-design/icons";
 const { Content } = Layout;
 
 const MarkdownWriter = () => {
@@ -24,36 +24,37 @@ const MarkdownWriter = () => {
                         height: '100%'
                     }}
                 >
-                    <Col span={50} style={{width: '50%', height: 'calc(100% - 150px)', margin: '20px 0 0 0'}}>
-                        <div style={{display: 'flex', justifyContent: 'space-between', margin: '0 0 20px 0'}}>
+                    <Col span={50} style={{width: '50%', height: 'calc(100% - 200px)', margin: '20px 0 0 0'}}>
+                        <div style={{display: 'flex', justifyContent: 'space-between', alignItems: 'center', margin: '0 0 20px 0'}}>
                             <div>
                                 <Typography.Title level={2} style={{margin: '0'}}>Your Text</Typography.Title>
                             </div>
                             <div>
                                 <Space.Compact style={{marginRight: 20}}>
-                                    <Button icon={<BoldOutlined />} />
-                                    <Button icon={<ItalicOutlined />} />
-                                    <Button icon={<UnderlineOutlined />} />
-                                    <Button icon={<StrikethroughOutlined />} />
+                                    <Tooltip title="Bold"><Button icon={<BoldOutlined />} /></Tooltip>
+                                    <Tooltip title="Italic"><Button icon={<ItalicOutlined />} /></Tooltip>
+                                    <Tooltip title="Underlined"><Button icon={<UnderlineOutlined />} /></Tooltip>
+                                    <Tooltip title="Strikethrough"><Button icon={<StrikethroughOutlined />} /></Tooltip>
                                 </Space.Compact>
                                 <Space.Compact style={{marginRight: 20}}>
-                                    <Button icon={<UnorderedListOutlined />} />
-                                    <Button icon={<OrderedListOutlined />} />
+                                    <Tooltip title="Unordered list"><Button icon={<UnorderedListOutlined />} /></Tooltip>
+                                    <Tooltip title="Ordered list"><Button icon={<OrderedListOutlined />} /></Tooltip>
                                 </Space.Compact>
-                                <Space.Compact style={{marginRight: 20}}>
-                                    <Button icon={<LinkOutlined />} />
+                                <Space.Compact>
+                                    <Tooltip title="Link"><Button icon={<LinkOutlined />} /></Tooltip>
                                 </Space.Compact>
                             </div>
                         </div>
                         <TextArea placeholder="Write here and use the buttons on the top!" style={{height: '100%'}} showCount/>
                     </Col>
-                    <Col span={50} style={{width: '50%', height: 'calc(100% - 150px)', margin: '20px 0 0 0'}}>
-                    <div style={{display: 'flex', justifyContent: 'space-between', margin: '0 0 20px 0'}}>
+                    <Col span={50} style={{width: '50%', height: 'calc(100% - 200px)', margin: '20px 0 0 0'}}>
+                    <div style={{display: 'flex', justifyContent: 'space-between', alignItems: 'center', margin: '0 0 20px 0'}}>
                             <div>
                                 <Typography.Title level={2} style={{margin: '0'}}>Markdown</Typography.Title>
                             </div>
                             <div>
-                                <Button>Example</Button>
+                                <Button icon={<CopyOutlined />} style={{marginRight: 10}}>Copy Text</Button>
+                                <Button icon={<DownloadOutlined />}>Download File</Button>
                             </div>
                         </div>
                         
