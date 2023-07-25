@@ -3,12 +3,12 @@ import React from 'react';
 import { Outlet } from 'react-router';
 import { NavLink } from 'react-router-dom';
 
-import { Layout, Menu } from 'antd';
+import { Layout, Menu, Row, Col, Typography, Grid, Divider } from 'antd';
 
 import './styles/App.css';
-import { CodeOutlined, InfoOutlined } from '@ant-design/icons';
+import { CodeOutlined, InfoOutlined, QuestionOutlined } from '@ant-design/icons';
 
-const { Header, Content, Footer } = Layout;
+const { Header } = Layout;
 
 const App = () => {
   return (
@@ -37,11 +37,16 @@ const App = () => {
               <NavLink to="/writer">Markdown Writer</NavLink>
             </Menu.Item>
 
+            <Menu.Item key="help" icon={<QuestionOutlined />}>
+              What's Markdown?
+            </Menu.Item>
+
             <Menu.Item key="about" icon={<InfoOutlined />}>
               <NavLink to="/about">About</NavLink>
             </Menu.Item>
           </Menu>
         </Header>
+        <Outlet />
       </Layout>
     </div>
   );
