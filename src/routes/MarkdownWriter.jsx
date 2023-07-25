@@ -4,11 +4,19 @@ import TextArea from "antd/es/input/TextArea";
 import { BoldOutlined, CopyOutlined, DeleteOutlined, DownloadOutlined, ItalicOutlined, LinkOutlined, OrderedListOutlined, StrikethroughOutlined, UnderlineOutlined, UnorderedListOutlined } from "@ant-design/icons";
 import MDResult from "../components/MDResult";
 import { useDispatch, useSelector } from "react-redux";
+import addMarkdownItem from "../utilities/addMarkdownItem";
 const { Content } = Layout;
 
 const MarkdownWriter = () => {
     const dispatch = useDispatch();
     const text = useSelector(state => state.md);
+
+    const addSpecialItem = item => {
+        dispatch({
+            type: 'md/update',
+            payload: addMarkdownItem(item)
+        })
+    }
 
     const updateTextArea = e => {
         dispatch({
@@ -44,9 +52,14 @@ const MarkdownWriter = () => {
                             </div>
                             <div>
                                 <Space.Compact style={{marginRight: 20}}>
-                                    <Tooltip title="Bold"><Button icon={<BoldOutlined />} /></Tooltip>
-                                    <Tooltip title="Italic"><Button icon={<ItalicOutlined />} /></Tooltip>
-                                    <Tooltip title="Underlined"><Button icon={<UnderlineOutlined />} /></Tooltip>
+                                    <Tooltip title="Bold">
+                                        <Button 
+                                            icon={<BoldOutlined />}
+                                            onClick={() => addSpecialItem('bold')}
+                                        />
+                                    </Tooltip>
+                                    <Tooltip title="Italics"><Button icon={<ItalicOutlined />} /></Tooltip>
+                                    {/* <Tooltip title="Underlined"><Button icon={<UnderlineOutlined />} /></Tooltip> */}
                                     <Tooltip title="Strikethrough"><Button icon={<StrikethroughOutlined />} /></Tooltip>
                                 </Space.Compact>
                                 <Space.Compact style={{marginRight: 20}}>
