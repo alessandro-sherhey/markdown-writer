@@ -1,7 +1,7 @@
 import React from "react";
 import { Layout, Row, Col, Typography, Grid, Divider, Space, Input, Button, Tooltip, Popconfirm, message } from 'antd';
 import TextArea from "antd/es/input/TextArea";
-import { BoldOutlined, CopyOutlined, DeleteOutlined, DownloadOutlined, ItalicOutlined, LinkOutlined, OrderedListOutlined, StrikethroughOutlined, UnderlineOutlined, UnorderedListOutlined } from "@ant-design/icons";
+import { BoldOutlined, CopyOutlined, DeleteOutlined, DownloadOutlined, FontSizeOutlined, ItalicOutlined, LinkOutlined, OrderedListOutlined, StrikethroughOutlined, UnderlineOutlined, UnorderedListOutlined } from "@ant-design/icons";
 import MDResult from "../components/MDResult";
 import { useDispatch, useSelector } from "react-redux";
 import addMarkdownItem from "../utilities/addMarkdownItem";
@@ -68,6 +68,14 @@ const MarkdownWriter = () => {
                                 <Typography.Title level={2} style={{margin: '0'}}>Your Text</Typography.Title>
                             </div>
                             <div>
+                                <Space.Compact style={{marginRight: 20}}>
+                                    <Tooltip title="Heading">
+                                        <Button
+                                            icon={<FontSizeOutlined />}
+                                            onClick={() => addSpecialItem('heading')}
+                                        />
+                                    </Tooltip>
+                                </Space.Compact>
                                 <Space.Compact style={{marginRight: 20}}>
                                     <Tooltip title="Bold">
                                         <Button 

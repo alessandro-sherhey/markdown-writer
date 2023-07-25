@@ -1,5 +1,17 @@
 const addMarkdownItem = (item) => {
     switch (item) {
+        case 'heading':
+            return `#`
+        case 'heading2':
+            return `##`
+        case 'heading3':
+            return `###`
+        case 'heading4':
+            return `####`
+        case 'heading5':
+            return `#####`
+        case 'heading6':
+            return `######`
         case 'bold':
             return `** **`
         case 'italics':
