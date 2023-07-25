@@ -1,7 +1,7 @@
 import React from "react";
-import { Layout, Row, Col, Typography, Grid, Divider, Space, Input, Button, Tooltip } from 'antd';
+import { Layout, Row, Col, Typography, Grid, Divider, Space, Input, Button, Tooltip, Popconfirm } from 'antd';
 import TextArea from "antd/es/input/TextArea";
-import { BoldOutlined, CopyOutlined, DownloadOutlined, ItalicOutlined, LinkOutlined, OrderedListOutlined, StrikethroughOutlined, UnderlineOutlined, UnorderedListOutlined } from "@ant-design/icons";
+import { BoldOutlined, CopyOutlined, DeleteOutlined, DownloadOutlined, ItalicOutlined, LinkOutlined, OrderedListOutlined, StrikethroughOutlined, UnderlineOutlined, UnorderedListOutlined } from "@ant-design/icons";
 import MDResult from "../components/MDResult";
 const { Content } = Layout;
 
@@ -42,8 +42,20 @@ const MarkdownWriter = () => {
                                     <Tooltip title="Unordered list"><Button icon={<UnorderedListOutlined />} /></Tooltip>
                                     <Tooltip title="Ordered list"><Button icon={<OrderedListOutlined />} /></Tooltip>
                                 </Space.Compact>
-                                <Space.Compact>
+                                <Space.Compact style={{marginRight: 20}}>
                                     <Tooltip title="Link"><Button icon={<LinkOutlined />} /></Tooltip>
+                                </Space.Compact>
+                                <Space.Compact>
+                                    <Popconfirm
+                                        title="Clear text"
+                                        description="Are you sure you want to delete everything?"
+                                        onConfirm={""}
+                                        onCancel={""}
+                                        okText="Yes, I'm sure."
+                                        cancelText="No, cancel."
+                                    >
+                                        <Button danger={true} icon={<DeleteOutlined />}>Clear</Button>
+                                    </Popconfirm>
                                 </Space.Compact>
                             </div>
                         </div>
@@ -55,8 +67,8 @@ const MarkdownWriter = () => {
                                 <Typography.Title level={2} style={{margin: '0'}}>Markdown</Typography.Title>
                             </div>
                             <div>
-                                <Button icon={<CopyOutlined />} style={{marginRight: 10}}>Copy Text</Button>
-                                <Button icon={<DownloadOutlined />}>Download File</Button>
+                                <Button disabled={true} icon={<CopyOutlined />} style={{marginRight: 10}}>Copy Text</Button>
+                                <Button disabled={true} icon={<DownloadOutlined />}>Download File</Button>
                             </div>
                         </div>
                         <MDResult/>
