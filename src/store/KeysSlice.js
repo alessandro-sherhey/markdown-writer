@@ -10,11 +10,9 @@ const KeysSlice = createSlice({
         5: false,
         6: false,
 
-        ctrl: false,
+        meta: false,
+        control: false,
         alt: false,
-
-        opt: false,
-        cmd: false,
 
         b: false,
         i: false,
@@ -25,8 +23,8 @@ const KeysSlice = createSlice({
         l: false
     },
     reducers: {
-        keyPressed: (state, action) => state[action.payload.key] = true,
-        keyUnpressed: (state, action) => state[action.payload.key] = true
+        keyPressed: (state, action) => { state[action.payload] = true },
+        keyUnpressed: (state, action) => { state[action.payload] = false }
     }
 })
 

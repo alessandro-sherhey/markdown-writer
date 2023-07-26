@@ -66,6 +66,48 @@ const MarkdownWriter = () => {
         }
     }
 
+    useEffect(() => {
+        const handleShortcut = e => {
+            if ((e.altKey && e.key === '1') || (e.ctrlKey && e.key === '1')) {
+                addSpecialItem('heading')
+            } else if ((e.altKey && e.key === '2') || (e.ctrlKey && e.key === '2')) {
+                addSpecialItem('heading2')
+            } else if ((e.altKey && e.key === '3') || (e.ctrlKey && e.key === '3')) {
+                addSpecialItem('heading3')
+            } else if ((e.altKey && e.key === '4') || (e.ctrlKey && e.key === '4')) {
+                addSpecialItem('heading4')
+            } else if ((e.altKey && e.key === '5') || (e.ctrlKey && e.key === '5')) {
+                addSpecialItem('heading5')
+            } else if ((e.altKey && e.key === '6') || (e.ctrlKey && e.key === '6')) {
+                addSpecialItem('heading6')
+            } else if ((e.ctrlKey && e.key === 'b') || (e.metaKey && e.key === 'b')) {
+                document.getElementById('boldBtn').click()
+            } else if ((e.ctrlKey && e.key === 'i') || (e.metaKey && e.key === 'i')) {
+                document.getElementById('italicsBtn').click()
+            } else if ((e.ctrlKey && e.key === 's') || (e.metaKey && e.key === 's')) {
+                e.preventDefault()  // Disable the default 'Save page' dialog.
+                document.getElementById('strikethroughBtn').click()
+            } else if (e.altKey && e.key === 'q') {
+                // Windows only
+                document.getElementById('blockquoteBtn').click()
+            } else if (e.altKey && e.key === 'u') {
+                // Windows only
+                document.getElementById('unorderedListBtn').click()
+            } else if (e.altKey && e.key === 'o') {
+                // Windows only
+                document.getElementById('orderedListBtn').click()
+            } else if (e.altKey && e.key === 'l') {
+                // Windows only
+                document.getElementById('linkBtn').click()
+            }
+        }
+        document.addEventListener('keydown', handleShortcut)
+
+        return () => {
+            document.removeEventListener('keydown', handleShortcut)
+        }
+    })
+
     return (
         <Content 
             className='md-writer' 
@@ -98,6 +140,7 @@ const MarkdownWriter = () => {
                                         <Button
                                             icon={<FontSizeOutlined />}
                                             onClick={() => addSpecialItem('heading')}
+                                            id="headingBtn"
                                         />
                                     </Tooltip>
                                 </Space.Compact>
@@ -106,18 +149,21 @@ const MarkdownWriter = () => {
                                         <Button 
                                             icon={<BoldOutlined />}
                                             onClick={() => addSpecialItem('bold')}
+                                            id="boldBtn"
                                         />
                                     </Tooltip>
                                     <Tooltip title="Italics (⌘ + I)">
                                         <Button 
                                             icon={<ItalicOutlined />}
                                             onClick={() => addSpecialItem('italics')}
+                                            id="italicsBtn"
                                         />
                                     </Tooltip>
                                     <Tooltip title="Strikethrough (⌘ + S)">
                                         <Button 
                                             icon={<StrikethroughOutlined />}
                                             onClick={() => addSpecialItem('strikethrough')}
+                                            id="strikethroughBtn"
                                         />
                                     </Tooltip>
                                 </Space.Compact>
@@ -126,18 +172,21 @@ const MarkdownWriter = () => {
                                         <Button
                                             icon={<DoubleRightOutlined />}
                                             onClick={() => addSpecialItem('blockquote')}
+                                            id="blockquoteBtn"
                                         />
                                     </Tooltip>
                                     <Tooltip title="Unordered list (⌥ + U)">
                                         <Button 
                                             icon={<UnorderedListOutlined />}
                                             onClick={() => addSpecialItem('unorderedlist')}
+                                            id="unorderedListBtn"
                                         />
                                     </Tooltip>
                                     <Tooltip title="Ordered list (⌥ + O)">
                                         <Button 
                                             icon={<OrderedListOutlined />} 
                                             onClick={() => addSpecialItem('orderedlist')}
+                                            id="orderedListBtn"
                                         />
                                     </Tooltip>
                                 </Space.Compact>
@@ -146,6 +195,7 @@ const MarkdownWriter = () => {
                                         <Button 
                                             icon={<LinkOutlined />}
                                             onClick={() => addSpecialItem('link')}
+                                            id="linkBtn"
                                         />
                                     </Tooltip>
                                 </Space.Compact>
