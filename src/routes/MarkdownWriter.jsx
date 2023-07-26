@@ -97,19 +97,19 @@ const MarkdownWriter = () => {
                                     </Tooltip>
                                 </Space.Compact>
                                 <Space.Compact style={{marginRight: 20}}>
-                                    <Tooltip title="Bold">
+                                    <Tooltip title="Bold (⌘ + B)">
                                         <Button 
                                             icon={<BoldOutlined />}
                                             onClick={() => addSpecialItem('bold')}
                                         />
                                     </Tooltip>
-                                    <Tooltip title="Italics">
+                                    <Tooltip title="Italics (⌘ + I)">
                                         <Button 
                                             icon={<ItalicOutlined />}
                                             onClick={() => addSpecialItem('italics')}
                                         />
                                     </Tooltip>
-                                    <Tooltip title="Strikethrough">
+                                    <Tooltip title="Strikethrough (⌘ + S)">
                                         <Button 
                                             icon={<StrikethroughOutlined />}
                                             onClick={() => addSpecialItem('strikethrough')}
@@ -117,19 +117,19 @@ const MarkdownWriter = () => {
                                     </Tooltip>
                                 </Space.Compact>
                                 <Space.Compact style={{marginRight: 20}}>
-                                    <Tooltip title="Blockquote">
+                                    <Tooltip title="Blockquote (⌥ + Q)">
                                         <Button
                                             icon={<DoubleRightOutlined />}
                                             onClick={() => addSpecialItem('blockquote')}
                                         />
                                     </Tooltip>
-                                    <Tooltip title="Unordered list">
+                                    <Tooltip title="Unordered list (⌥ + U)">
                                         <Button 
                                             icon={<UnorderedListOutlined />}
                                             onClick={() => addSpecialItem('unorderedlist')}
                                         />
                                     </Tooltip>
-                                    <Tooltip title="Ordered list">
+                                    <Tooltip title="Ordered list (⌥ + O)">
                                         <Button 
                                             icon={<OrderedListOutlined />} 
                                             onClick={() => addSpecialItem('orderedlist')}
@@ -137,7 +137,7 @@ const MarkdownWriter = () => {
                                     </Tooltip>
                                 </Space.Compact>
                                 <Space.Compact style={{marginRight: 20}}>
-                                    <Tooltip title="Link">
+                                    <Tooltip title="Link (⌥ + L)">
                                         <Button 
                                             icon={<LinkOutlined />}
                                             onClick={() => addSpecialItem('link')}
