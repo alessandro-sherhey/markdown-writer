@@ -18,6 +18,8 @@ const addMarkdownItem = (item) => {
             return `* *`
         case 'strikethrough':
             return `~~ ~~`
+        case 'blockquote':
+            return `> `
         case 'unorderedlist':
             return `-   `
         case 'orderedlist':

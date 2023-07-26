@@ -1,7 +1,7 @@
 import React from "react";
 import { Layout, Row, Col, Typography, Grid, Divider, Space, Input, Button, Tooltip, Popconfirm, message } from 'antd';
 import TextArea from "antd/es/input/TextArea";
-import { BoldOutlined, CopyOutlined, DeleteOutlined, DownloadOutlined, FontSizeOutlined, ItalicOutlined, LinkOutlined, OrderedListOutlined, StrikethroughOutlined, UnderlineOutlined, UnorderedListOutlined } from "@ant-design/icons";
+import { BoldOutlined, CopyOutlined, DeleteOutlined, DoubleRightOutlined, DownloadOutlined, FontSizeOutlined, ItalicOutlined, LinkOutlined, OrderedListOutlined, StrikethroughOutlined, UnderlineOutlined, UnorderedListOutlined } from "@ant-design/icons";
 import MDResult from "../components/MDResult";
 import { useDispatch, useSelector } from "react-redux";
 import addMarkdownItem from "../utilities/addMarkdownItem";
@@ -38,8 +38,6 @@ const MarkdownWriter = () => {
     const onClearCancel = () => {
         messageApi.info('Nothing was deleted.')
     }
-
-
 
     return (
         <Content 
@@ -97,6 +95,12 @@ const MarkdownWriter = () => {
                                     </Tooltip>
                                 </Space.Compact>
                                 <Space.Compact style={{marginRight: 20}}>
+                                    <Tooltip title="Blockquote">
+                                        <Button
+                                            icon={<DoubleRightOutlined />}
+                                            onClick={() => addSpecialItem('blockquote')}
+                                        />
+                                    </Tooltip>
                                     <Tooltip title="Unordered list">
                                         <Button 
                                             icon={<UnorderedListOutlined />}
