@@ -1,9 +1,25 @@
 import { BoldOutlined, DoubleRightOutlined, FontSizeOutlined, ItalicOutlined, LinkOutlined, MacCommandOutlined, OrderedListOutlined, StrikethroughOutlined, UnderlineOutlined, UnorderedListOutlined } from "@ant-design/icons";
 import { Button, Typography, Divider, Space, Row, Col, Grid } from "antd";
 import { Content } from "antd/es/layout/layout";
-import React from "react";
+import React, { useEffect, useState } from "react";
 
 const Shortcuts = () => {
+    const userAgent = navigator.userAgent.toLowerCase()
+    const [isAppleDevice, setIsAppleDevice] = useState(null);
+
+    useEffect(() => {
+        if (userAgent.indexOf('macintosh') !== -1) {
+            setIsAppleDevice(true)
+        } else if (userAgent.indexOf('ipad') !== -1) {
+            setIsAppleDevice(true)
+        } else if (userAgent.indexOf('iphone') !== -1) {
+            setIsAppleDevice(true)
+        } else {
+            setIsAppleDevice(false)
+        }
+        console.log(isAppleDevice)
+    })
+
     return (
         <Content 
             className="shortcuts"
