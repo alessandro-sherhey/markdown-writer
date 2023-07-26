@@ -1,9 +1,11 @@
 import { configureStore } from "@reduxjs/toolkit";
-import mdReducer from './MDSlice'
+import mdReducer from './MDSlice';
+import keysReducer from './KeysSlice';
 
 const store = configureStore({
     reducer: {
-        md: mdReducer
+        md: mdReducer,
+        keys: keysReducer
     }
 })
 
