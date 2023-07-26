@@ -6,7 +6,7 @@ import { NavLink } from 'react-router-dom';
 import { Layout, Menu, Row, Col, Typography, Grid, Divider, ConfigProvider, theme, notification, Button } from 'antd';
 
 import './styles/App.css';
-import { BugOutlined, CodeOutlined, InfoOutlined, QuestionOutlined } from '@ant-design/icons';
+import { BugOutlined, CodeOutlined, EditOutlined, InfoOutlined, QuestionOutlined } from '@ant-design/icons';
 
 const { Header } = Layout;
 
@@ -59,6 +59,10 @@ const App = () => {
 
               <Menu.Item key="help" icon={<QuestionOutlined />}>
                 <NavLink to="/help">What's Markdown?</NavLink>
+              </Menu.Item>
+
+              <Menu.Item key="shortcuts" icon={<EditOutlined />}>
+                <NavLink to="/shortcuts">Keyboard Shortcuts</NavLink>
               </Menu.Item>
 
               <Menu.Item key="about" icon={<InfoOutlined />}>

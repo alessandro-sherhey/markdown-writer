@@ -69,7 +69,8 @@ const MarkdownWriter = () => {
                 padding: '0 50px',
                 backgroundColor: 'white',
                 overflow: 'hidden'
-            }}>
+            }}
+        >
                 {contextHolder}
                 {/* <Typography.Title>Markdown Writer</Typography.Title>
                 <Divider /> */}
