@@ -2,7 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './styles/index.css';
 import App from './App';
-import { createHashRouter, Route, RouterProvider } from 'react-router-dom';
+import { createHashRouter, RouterProvider } from 'react-router-dom';
 import MarkdownWriter from './routes/MarkdownWriter';
 import Help from './routes/Help';
 import About from './routes/About';

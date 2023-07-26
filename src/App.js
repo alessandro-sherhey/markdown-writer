@@ -1,18 +1,33 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 
 import { Outlet } from 'react-router';
 import { NavLink } from 'react-router-dom';
 
-import { Layout, Menu, Row, Col, Typography, Grid, Divider, ConfigProvider, theme } from 'antd';
+import { Layout, Menu, Row, Col, Typography, Grid, Divider, ConfigProvider, theme, notification, Button } from 'antd';
 
 import './styles/App.css';
-import { CodeOutlined, InfoOutlined, QuestionOutlined } from '@ant-design/icons';
+import { BugOutlined, CodeOutlined, InfoOutlined, QuestionOutlined } from '@ant-design/icons';
 
 const { Header } = Layout;
 
 const App = () => {
+  const [api, contextHolder] = notification.useNotification()
+
+  const openBetaNotification = () => {
+    api.info({
+      message: 'Welcome!',
+      description: `This web app is still in beta. If you notice some bugs please report them here: https://github.com/alessandro-sherhey/markdown-writer`,
+      icon: <BugOutlined style={{color: "red", fontSize: '20px'}} />
+    })
+  }
+
+  useEffect(() => {
+    openBetaNotification()
+  }, [])
+
   return (
     <div className="App">
+      { contextHolder }
       <ConfigProvider
         theme={{
           // algorithm: theme.darkAlgorithm,
