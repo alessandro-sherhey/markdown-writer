@@ -1,3 +1,4 @@
+import { Typography, Divider } from "antd";
 import { Content } from "antd/es/layout/layout";
 import React from "react";
 
@@ -12,7 +13,8 @@ const Help = () => {
                 backgroundColor: 'white',
             }}
         >
-            
+            <Typography.Title>What's Markdown?</Typography.Title>
+            <Divider />
         </Content>
     )
 }
