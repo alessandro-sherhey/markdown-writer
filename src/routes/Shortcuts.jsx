@@ -1,11 +1,12 @@
-import { BoldOutlined, DoubleRightOutlined, FontSizeOutlined, ItalicOutlined, LinkOutlined, MacCommandOutlined, OrderedListOutlined, StrikethroughOutlined, UnderlineOutlined, UnorderedListOutlined } from "@ant-design/icons";
-import { Button, Typography, Divider, Space, Row, Col, Grid } from "antd";
+import { BoldOutlined, DoubleRightOutlined, FontSizeOutlined, ItalicOutlined, LinkOutlined, MacCommandOutlined, OrderedListOutlined, QuestionCircleOutlined, StrikethroughOutlined, UnderlineOutlined, UnorderedListOutlined } from "@ant-design/icons";
+import { Button, Typography, Divider, Space, Row, Col, Grid, Modal } from "antd";
 import { Content } from "antd/es/layout/layout";
 import React, { useEffect, useState } from "react";
 
 const Shortcuts = () => {
     const userAgent = navigator.userAgent.toLowerCase()
     const [isAppleDevice, setIsAppleDevice] = useState(null);
+    const [isHelpOpen, setIsHelpOpen] = useState(false)
 
     useEffect(() => {
         if (userAgent.indexOf('macintosh') !== -1) {
@@ -19,6 +20,13 @@ const Shortcuts = () => {
         }
     })
 
+    const showHelp = () => {
+        setIsHelpOpen(true)
+    }
+    const hideHelp = () => {
+        setIsHelpOpen(false)
+    }
+
     return (
         <Content 
             className="shortcuts"
@@ -29,7 +37,44 @@ const Shortcuts = () => {
                 backgroundColor: 'white',
             }}
         >
-            <Typography.Title>Keyboard Shortcuts</Typography.Title>
+            {
+                isAppleDevice
+                ?
+                <div style={{display: 'flex', justifyContent: 'space-between', alignItems: 'center', padding: 0}}>
+                    <Typography.Title>Keyboard Shortcuts</Typography.Title>
+                    <Button
+                        type="primary"
+                        icon={<QuestionCircleOutlined />}
+                        onClick={showHelp}
+                    >Why are some shortcuts missing?</Button>
+                    <Modal
+                        title="Why are some shortcuts missing?"
+                        open={isHelpOpen}
+                        onOk={hideHelp}
+                        onCancel={hideHelp}
+                        footer={[
+                            <Button 
+                                key="close"
+                                type="primary"
+                                onClick={hideHelp}
+                            >OK</Button>
+                        ]}
+                    >
+                        <p>
+                            Unfortunately a lot of modifier keys in macOS computers have another use, and I couldn't just use other keys that are difficult to remember and aren't related to the desired action in any way. 
+                        </p>
+                        <p>
+                            Because of this I decided that it's best to remove some keyboard shortcuts, while keeping the most important ones such as adding headings, bold, italics and strikethrough text. For the last one I needed to disable the "Save as..." shortcut (Cmd + S). 
+                        </p>
+                        <p>
+                            If, for whatever reason, you need to save the page, right click anywhere in the page and click "Save as..." from the menu. If you just would like to look at the source code you can find it in this site's GitHub repository. You can find its link in the "About" section.
+                        </p>
+                    </Modal>
+                </div>
+                :
+                <Typography.Title>Keyboard Shortcuts</Typography.Title>
+            }
+            
             <Divider children="Headings" />
             <Row align='middle' gutter={20}>
                 <Col>
@@ -119,7 +164,8 @@ const Shortcuts = () => {
                 }
             </Row>
             {
-                !isAppleDevice &&
+                !isAppleDevice
+                &&
                 <div>
                     <Divider children="Text Formatting"/>
                     <Row align='middle' gutter={20}>
