@@ -50,14 +50,20 @@ const MarkdownWriter = () => {
             await navigator.clipboard.writeText(text)
             messageApi.success('Text copied to the clipboard!')
         } catch (e) {
-            messageApi.error('An error occured. Please check the console.')
+            messageApi.error('An error occured while copying your text.')
             console.error(e)
         }
     }
 
     const downloadFile = () => {
-        const blob = new Blob([text], { type: 'text/markdown;charset=utf-8'});
-        saveAs(blob, 'markdown.md')
+        try {
+            const blob = new Blob([text], { type: 'text/markdown;charset=utf-8'});
+            saveAs(blob, 'markdown.md')
+            messageApi.success('File downloaded!')
+        } catch (e) {
+            messageApi.error('An error occured while downloading the file.')
+            console.error(e)
+        }
     }
 
     return (
