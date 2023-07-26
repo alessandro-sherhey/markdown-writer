@@ -45,6 +45,16 @@ const MarkdownWriter = () => {
         messageApi.info('Nothing was deleted.')
     }
 
+    const copyText = async () => {
+        try {
+            await navigator.clipboard.writeText(text)
+            messageApi.success('Text copied to the clipboard!')
+        } catch (e) {
+            messageApi.error('An error occured. Please check the console.')
+            console.error(e)
+        }
+    }
+
     const downloadFile = () => {
         const blob = new Blob([text], { type: 'text/markdown;charset=utf-8'});
         saveAs(blob, 'markdown.md')
@@ -165,6 +175,7 @@ const MarkdownWriter = () => {
                                     disabled={disableButtons} 
                                     icon={<CopyOutlined />} 
                                     style={{marginRight: 10}}
+                                    onClick={copyText}
                                 >Copy Text</Button>
                                 <Button 
                                     disabled={disableButtons}
