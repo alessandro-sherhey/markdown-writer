@@ -1,10 +1,11 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { Layout, Row, Col, Typography, Grid, Divider, Space, Input, Button, Tooltip, Popconfirm, message } from 'antd';
 import TextArea from "antd/es/input/TextArea";
 import { BoldOutlined, CopyOutlined, DeleteOutlined, DoubleRightOutlined, DownloadOutlined, FontSizeOutlined, ItalicOutlined, LinkOutlined, OrderedListOutlined, StrikethroughOutlined, UnderlineOutlined, UnorderedListOutlined } from "@ant-design/icons";
 import MDResult from "../components/MDResult";
 import { useDispatch, useSelector } from "react-redux";
 import addMarkdownItem from "../utilities/addMarkdownItem";
+import FileSaver, { saveAs } from "file-saver";
 const { Content } = Layout;
 
 const MarkdownWriter = () => {
@@ -12,6 +13,11 @@ const MarkdownWriter = () => {
 
     const dispatch = useDispatch();
     const text = useSelector(state => state.md);
+
+    const [disableButtons, setDisableButtons] = useState(true);
+    useEffect(() => {
+        text ? setDisableButtons(false) : setDisableButtons(true)
+    }, [text])
 
     const addSpecialItem = item => {
         dispatch({
@@ -37,6 +43,11 @@ const MarkdownWriter = () => {
 
     const onClearCancel = () => {
         messageApi.info('Nothing was deleted.')
+    }
+
+    const downloadFile = () => {
+        const blob = new Blob([text], { type: 'text/markdown;charset=utf-8'});
+        saveAs(blob, 'markdown.md')
     }
 
     return (
@@ -150,8 +161,16 @@ const MarkdownWriter = () => {
                                 <Typography.Title level={2} style={{margin: '0'}}>Markdown</Typography.Title>
                             </div>
                             <div>
-                                <Button disabled={true} icon={<CopyOutlined />} style={{marginRight: 10}}>Copy Text</Button>
-                                <Button disabled={true} icon={<DownloadOutlined />}>Download File</Button>
+                                <Button 
+                                    disabled={disableButtons} 
+                                    icon={<CopyOutlined />} 
+                                    style={{marginRight: 10}}
+                                >Copy Text</Button>
+                                <Button 
+                                    disabled={disableButtons}
+                                    icon={<DownloadOutlined />}
+                                    onClick={downloadFile}
+                                >Download File</Button>
                             </div>
                         </div>
                         <MDResult/>
