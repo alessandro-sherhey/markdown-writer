@@ -172,16 +172,17 @@ const MarkdownWriter = () => {
                             </div>
                             <div>
                                 <Button 
-                                    disabled={disableButtons} 
-                                    icon={<CopyOutlined />} 
-                                    style={{marginRight: 10}}
-                                    onClick={copyText}
-                                >Copy Text</Button>
-                                <Button 
                                     disabled={disableButtons}
                                     icon={<DownloadOutlined />}
+                                    style={{marginRight: 10}}
                                     onClick={downloadFile}
                                 >Download File</Button>
+                                <Button 
+                                    type="primary"
+                                    disabled={disableButtons} 
+                                    icon={<CopyOutlined />} 
+                                    onClick={copyText}
+                                >Copy Text</Button>
                             </div>
                         </div>
                         <MDResult/>
