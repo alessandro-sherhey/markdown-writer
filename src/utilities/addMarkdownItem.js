@@ -1,17 +1,17 @@
 const addMarkdownItem = (item) => {
     switch (item) {
         case 'heading':
-            return `#`
+            return `# `
         case 'heading2':
-            return `##`
+            return `## `
         case 'heading3':
-            return `###`
+            return `### `
         case 'heading4':
-            return `####`
+            return `#### `
         case 'heading5':
-            return `#####`
+            return `##### `
         case 'heading6':
-            return `######`
+            return `###### `
         case 'bold':
             return `** **`
         case 'italics':
@@ -26,6 +26,7 @@ const addMarkdownItem = (item) => {
             return `[]()`
         default:
             console.error('addMarkdownItem was called with an invalid argument.')
+            break;
     }
 }
 
