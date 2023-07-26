@@ -68,7 +68,6 @@ const MarkdownWriter = () => {
                 height: 'calc(100vh - 64px)',
                 padding: '0 50px',
                 backgroundColor: 'white',
-                overflow: 'hidden'
             }}
         >
                 {contextHolder}
