@@ -14,6 +14,20 @@ const MarkdownWriter = () => {
     const dispatch = useDispatch();
     const text = useSelector(state => state.md);
 
+    const userAgent = navigator.userAgent.toLowerCase()
+    const [isAppleDevice, setIsAppleDevice] = useState(false);
+    useEffect(() => {
+        if (userAgent.indexOf('macintosh') !== -1) {
+            setIsAppleDevice(true)
+        } else if (userAgent.indexOf('ipad') !== -1) {
+            setIsAppleDevice(true)
+        } else if (userAgent.indexOf('iphone') !== -1) {
+            setIsAppleDevice(true)
+        } else {
+            setIsAppleDevice(false)
+        }
+    })
+
     const [disableButtons, setDisableButtons] = useState(true);
     useEffect(() => {
         text ? setDisableButtons(false) : setDisableButtons(true)
@@ -120,8 +134,6 @@ const MarkdownWriter = () => {
             }}
         >
                 {contextHolder}
-                {/* <Typography.Title>Markdown Writer</Typography.Title>
-                <Divider /> */}
                 <Row
                     gutter={ {xs: 8, sm: 16, md: 24, lg: 32} }
                     style={{
@@ -137,7 +149,7 @@ const MarkdownWriter = () => {
                             </div>
                             <div>
                                 <Space.Compact style={{marginRight: 20}}>
-                                    <Tooltip title="Heading">
+                                    <Tooltip title={isAppleDevice ? "Heading (⌃ + 1)" : "Heading (Alt + 1)"}>
                                         <Button
                                             icon={<FontSizeOutlined />}
                                             onClick={() => addSpecialItem('heading')}
@@ -146,21 +158,21 @@ const MarkdownWriter = () => {
                                     </Tooltip>
                                 </Space.Compact>
                                 <Space.Compact style={{marginRight: 20}}>
-                                    <Tooltip title="Bold (⌘ + B)">
+                                    <Tooltip title={isAppleDevice ? "Bold (⌘ + B)" : "Bold (Ctrl + B)"}>
                                         <Button 
                                             icon={<BoldOutlined />}
                                             onClick={() => addSpecialItem('bold')}
                                             id="boldBtn"
                                         />
                                     </Tooltip>
-                                    <Tooltip title="Italics (⌘ + I)">
+                                    <Tooltip title={isAppleDevice ? "Italics (⌘ + I)" : "Italics (Ctrl + I)"}>
                                         <Button 
                                             icon={<ItalicOutlined />}
                                             onClick={() => addSpecialItem('italics')}
                                             id="italicsBtn"
                                         />
                                     </Tooltip>
-                                    <Tooltip title="Strikethrough (⌘ + S)">
+                                    <Tooltip title={isAppleDevice ? "Strikethrough (⌘ + S)" : "Strikethrough (Ctrl + S)"}>
                                         <Button 
                                             icon={<StrikethroughOutlined />}
                                             onClick={() => addSpecialItem('strikethrough')}
@@ -169,21 +181,21 @@ const MarkdownWriter = () => {
                                     </Tooltip>
                                 </Space.Compact>
                                 <Space.Compact style={{marginRight: 20}}>
-                                    <Tooltip title="Blockquote (⌥ + Q)">
+                                    <Tooltip title={isAppleDevice ? "Blockquote" : "Blockquote (Alt + Q)"}>
                                         <Button
                                             icon={<DoubleRightOutlined />}
                                             onClick={() => addSpecialItem('blockquote')}
                                             id="blockquoteBtn"
                                         />
                                     </Tooltip>
-                                    <Tooltip title="Unordered list (⌥ + U)">
+                                    <Tooltip title={isAppleDevice ? "Unordered list" : "Unordered list (Alt + U)"}>
                                         <Button 
                                             icon={<UnorderedListOutlined />}
                                             onClick={() => addSpecialItem('unorderedlist')}
                                             id="unorderedListBtn"
                                         />
                                     </Tooltip>
-                                    <Tooltip title="Ordered list (⌥ + O)">
+                                    <Tooltip title={isAppleDevice ? "Ordered list" : "Ordered list (Alt + O)"}>
                                         <Button 
                                             icon={<OrderedListOutlined />} 
                                             onClick={() => addSpecialItem('orderedlist')}
@@ -192,7 +204,7 @@ const MarkdownWriter = () => {
                                     </Tooltip>
                                 </Space.Compact>
                                 <Space.Compact style={{marginRight: 20}}>
-                                    <Tooltip title="Link (⌥ + L)">
+                                    <Tooltip title={isAppleDevice ? "Link" : "Link (Alt + L)"}>
                                         <Button 
                                             icon={<LinkOutlined />}
                                             onClick={() => addSpecialItem('link')}
