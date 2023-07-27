@@ -83,6 +83,7 @@ const MarkdownWriter = () => {
             } else if ((e.ctrlKey && e.key === 'b') || (e.metaKey && e.key === 'b')) {
                 document.getElementById('boldBtn').click()
             } else if ((e.ctrlKey && e.key === 'i') || (e.metaKey && e.key === 'i')) {
+                e.preventDefault()
                 document.getElementById('italicsBtn').click()
             } else if ((e.ctrlKey && e.key === 's') || (e.metaKey && e.key === 's')) {
                 e.preventDefault()  // Disable the default 'Save page' dialog.

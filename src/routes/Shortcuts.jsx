@@ -64,7 +64,7 @@ const Shortcuts = () => {
                             Unfortunately a lot of modifier keys in macOS computers have another use, and I couldn't just use other keys that are difficult to remember and aren't related to the desired action in any way. 
                         </p>
                         <p>
-                            Because of this I decided that it's best to remove some keyboard shortcuts, while keeping the most important ones such as adding headings, bold, italics and strikethrough text. For the last one I needed to disable the "Save as..." shortcut (Cmd + S). 
+                            Because of this I decided that it's best to remove some keyboard shortcuts, while keeping the most important ones such as adding headings, bold, italics and strikethrough text. For the last two ones I needed to disable the shortcut to send the page with Mail (Cmd + I) and the "Save as..." shortcut (Cmd + S). 
                         </p>
                         <p>
                             If, for whatever reason, you need to save the page, right click anywhere in the page and click "Save as..." from the menu. If you just would like to look at the source code you can find it in this site's GitHub repository. You can find its link in the "About" section.
