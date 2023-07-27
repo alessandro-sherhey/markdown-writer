@@ -1,9 +1,9 @@
 import { configureStore } from "@reduxjs/toolkit";
-import mdReducer from './MDSlice'
+import mdReducer from './MDSlice';
 
 const store = configureStore({
     reducer: {
-        md: mdReducer
+        md: mdReducer,
     }
 })
 

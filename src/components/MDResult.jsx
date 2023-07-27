@@ -1,4 +1,3 @@
-import { Typography } from "antd";
 import React from "react";
 import { ReactMarkdown } from "react-markdown/lib/react-markdown";
 import { useSelector } from "react-redux";

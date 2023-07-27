@@ -8,6 +8,7 @@ import Help from './routes/Help';
 import About from './routes/About';
 import store from './store/store';
 import { Provider } from 'react-redux';
+import Shortcuts from './routes/Shortcuts';
 
 const router = createHashRouter([
   {
@@ -21,6 +22,10 @@ const router = createHashRouter([
       {
         path: "/help",
         element: <Help />
+      },
+      {
+        path: "/shortcuts",
+        element: <Shortcuts />
       },
       {
         path: '/about',
