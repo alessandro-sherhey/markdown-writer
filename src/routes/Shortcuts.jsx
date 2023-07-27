@@ -18,7 +18,7 @@ const Shortcuts = () => {
         } else {
             setIsAppleDevice(false)
         }
-    })
+    }, [userAgent])
 
     const showHelp = () => {
         setIsHelpOpen(true)
