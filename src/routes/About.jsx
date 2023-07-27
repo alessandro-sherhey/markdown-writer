@@ -1,4 +1,4 @@
-import { Button, Typography, Divider, Row, Col, Space } from "antd"
+import { Button, Typography, Divider, Row, Col } from "antd"
 import { Content } from "antd/es/layout/layout";
 import React from "react";
 

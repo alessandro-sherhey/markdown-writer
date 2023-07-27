@@ -1,11 +1,11 @@
 import React, { useEffect, useState } from "react";
-import { Layout, Row, Col, Typography, Grid, Divider, Space, Input, Button, Tooltip, Popconfirm, message } from 'antd';
+import { Layout, Row, Col, Typography, Space, Button, Tooltip, Popconfirm, message } from 'antd';
 import TextArea from "antd/es/input/TextArea";
-import { BoldOutlined, CopyOutlined, DeleteOutlined, DoubleRightOutlined, DownloadOutlined, FontSizeOutlined, ItalicOutlined, LinkOutlined, OrderedListOutlined, StrikethroughOutlined, UnderlineOutlined, UnorderedListOutlined } from "@ant-design/icons";
+import { BoldOutlined, CopyOutlined, DeleteOutlined, DoubleRightOutlined, DownloadOutlined, FontSizeOutlined, ItalicOutlined, LinkOutlined, OrderedListOutlined, StrikethroughOutlined, UnorderedListOutlined } from "@ant-design/icons";
 import MDResult from "../components/MDResult";
 import { useDispatch, useSelector } from "react-redux";
 import addMarkdownItem from "../utilities/addMarkdownItem";
-import FileSaver, { saveAs } from "file-saver";
+import { saveAs } from "file-saver";
 const { Content } = Layout;
 
 const MarkdownWriter = () => {
@@ -16,6 +16,7 @@ const MarkdownWriter = () => {
 
     const userAgent = navigator.userAgent.toLowerCase()
     const [isAppleDevice, setIsAppleDevice] = useState(false);
+
     useEffect(() => {
         if (userAgent.indexOf('macintosh') !== -1) {
             setIsAppleDevice(true)
@@ -26,7 +27,7 @@ const MarkdownWriter = () => {
         } else {
             setIsAppleDevice(false)
         }
-    })
+    }, [userAgent])
 
     const [disableButtons, setDisableButtons] = useState(true);
     useEffect(() => {

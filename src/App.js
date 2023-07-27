@@ -3,7 +3,7 @@ import React, { useEffect } from 'react';
 import { Outlet } from 'react-router';
 import { NavLink } from 'react-router-dom';
 
-import { Layout, Menu, Row, Col, Typography, Grid, Divider, ConfigProvider, theme, notification, Button } from 'antd';
+import { Layout, Menu, ConfigProvider, notification } from 'antd';
 
 import './styles/App.css';
 import { BugOutlined, CodeOutlined, EditOutlined, InfoOutlined, QuestionOutlined } from '@ant-design/icons';
@@ -25,7 +25,7 @@ const App = () => {
 
   useEffect(() => {
     openBetaNotification()
-  }, [])
+  })
 
   useEffect(() => {
     const handleKeyDown = (e) => {
