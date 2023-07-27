@@ -44,6 +44,11 @@ const Help = () => {
             <Typography.Paragraph>
                 As you can see, it's not so difficult! :{")"} You can quite easily remember the basic stuff, or you can use online editors such as <Button type="link" href="https://stackedit.io/app#" target="_blank" rel="noreferrer" style={{padding: 5}}>StackEdit</Button>, or this ;{")"}
             </Typography.Paragraph>
+
+            <Typography.Paragraph>
+                If you want to learn alternative syntax (such as using + instead of * for unordered lists) you can go to 
+                <Button type="link" href="https://www.markdownguide.org/basic-syntax/" target="_blank" rel="noreferrer" style={{padding: 5}}>markdownguide.org</Button>, which I found useful <i>(not sponsored)</i>.
+            </Typography.Paragraph>
         </Content>
     )
 }
