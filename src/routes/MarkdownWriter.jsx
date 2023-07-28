@@ -235,7 +235,11 @@ const MarkdownWriter = () => {
                                         okText="Yes, I'm sure."
                                         cancelText="No, cancel."
                                     >
-                                        <Button danger={true} icon={<DeleteOutlined />}>Clear</Button>
+                                        <Button 
+                                            danger={true}
+                                            icon={<DeleteOutlined />}
+                                            disabled={disableButtons}
+                                        >Clear</Button>
                                     </Popconfirm>
                                 </Space.Compact>
                             </div>
