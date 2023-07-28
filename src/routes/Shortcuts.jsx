@@ -29,18 +29,12 @@ const Shortcuts = () => {
 
     return (
         <Content 
-            className="shortcuts"
-            style={{
-                width: '100vw',
-                height: 'calc(100vh - 64px)',
-                padding: '0 50px',
-                backgroundColor: 'white',
-            }}
+            className="content shortcuts"
         >
             {
                 isAppleDevice
                 ?
-                <div style={{display: 'flex', justifyContent: 'space-between', alignItems: 'center', padding: 0}}>
+                <div className="shortcuts-title">
                     <Typography.Title>Keyboard Shortcuts</Typography.Title>
                     <Button
                         type="primary"
