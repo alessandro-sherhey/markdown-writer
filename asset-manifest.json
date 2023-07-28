@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/markdown-writer/static/css/main.f19287bd.css",
+    "main.js": "/markdown-writer/static/js/main.2025848f.js",
+    "index.html": "/markdown-writer/index.html",
+    "main.f19287bd.css.map": "/markdown-writer/static/css/main.f19287bd.css.map",
+    "main.2025848f.js.map": "/markdown-writer/static/js/main.2025848f.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.f19287bd.css",
+    "static/js/main.2025848f.js"
+  ]
+}
