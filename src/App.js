@@ -3,29 +3,16 @@ import React, { useEffect, useState } from 'react';
 import { Outlet } from 'react-router';
 import { NavLink } from 'react-router-dom';
 
-import { Layout, Menu, ConfigProvider, notification, theme } from 'antd';
+import { Layout, Menu, ConfigProvider, theme } from 'antd';
 
 import './styles/App.css';
-import { BugOutlined, CodeOutlined, EditOutlined, InfoOutlined, QuestionOutlined } from '@ant-design/icons';
+import { CodeOutlined, EditOutlined, InfoOutlined, QuestionOutlined } from '@ant-design/icons';
 import { useDispatch } from 'react-redux';
 
 const { Header } = Layout;
 
 const App = () => {
   const dispatch = useDispatch()
-  const [api, contextHolder] = notification.useNotification()
-
-  const openBetaNotification = () => {
-    api.info({
-      message: 'Welcome!',
-      description: `This web app is still in beta. If you notice some bugs please report them here: https://github.com/alessandro-sherhey/markdown-writer`,
-      icon: <BugOutlined style={{color: "red", fontSize: '20px'}} />
-    })
-  }
-
-  useEffect(() => {
-    openBetaNotification()
-  }, [])
 
   useEffect(() => {
     const handleKeyDown = (e) => {
@@ -111,7 +98,6 @@ const App = () => {
 
   return (
     <div className="App">
-      { contextHolder }
       <ConfigProvider
         theme={
           darkScheme ?
