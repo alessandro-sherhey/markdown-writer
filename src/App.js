@@ -1,9 +1,9 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 
 import { Outlet } from 'react-router';
 import { NavLink } from 'react-router-dom';
 
-import { Layout, Menu, ConfigProvider, notification } from 'antd';
+import { Layout, Menu, ConfigProvider, notification, theme } from 'antd';
 
 import './styles/App.css';
 import { BugOutlined, CodeOutlined, EditOutlined, InfoOutlined, QuestionOutlined } from '@ant-design/icons';
@@ -25,7 +25,7 @@ const App = () => {
 
   useEffect(() => {
     openBetaNotification()
-  })
+  }, [])
 
   useEffect(() => {
     const handleKeyDown = (e) => {
@@ -93,26 +93,34 @@ const App = () => {
     }
   })
 
+  const [darkScheme, setDarkScheme] = useState(window.matchMedia('(prefers-color-scheme: dark)'))
+
+  const updateDarkMode = e => {
+    setDarkScheme(e.matches)
+  }
+
+  useEffect(() => {
+    const darkMediaQuery = window.matchMedia('(prefers-color-scheme: dark)');
+    setDarkScheme(darkMediaQuery.matches);
+    darkMediaQuery.addEventListener("change", updateDarkMode)
+
+    return () => {
+      darkMediaQuery.removeEventListener("change", updateDarkMode)
+    }
+  }, [])
+
   return (
     <div className="App">
       { contextHolder }
       <ConfigProvider
-        theme={{
-          // algorithm: theme.darkAlgorithm,
-        }}
+        theme={
+          darkScheme ?
+          { algorithm: theme.darkAlgorithm } :
+          null
+        }
       >
         <Layout>
-          <Header
-            style={{
-              position: 'sticky',
-              top: 0,
-              zIndex: 1,
-              width: '100%',
-              display: 'flex',
-              alignItems: 'center',
-              backgroundColor: 'rgb(250, 250, 250)'
-            }}
-          >
+          <Header>
             <div className='logo'></div>
             <Menu
               theme="light"

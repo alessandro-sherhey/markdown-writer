@@ -1,3 +1,14 @@
+/* Header */
+header {
+  position: sticky;
+  top: 0;
+  z-index: 1;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  background-color: rgb(250, 250, 250);
+}
+
 /* Menu */
 ul.ant-menu {
   background-color: rgb(250, 250, 250);
@@ -170,5 +181,36 @@ textarea {
 
   .mdresult {
     max-height: 500px;
+  }
+}
+
+@media (prefers-color-scheme: dark) {
+  main {
+    background-color: rgb(10, 10, 10);
+  }
+
+  ul.ant-menu {
+    background-color: rgb(30, 30, 30);
+  }
+
+  header.ant-layout-header {
+    background: rgb(30, 30, 30);
+  }
+
+  h2.ant-typography {
+    color: white;
+  }
+
+  .mdresult, span.ant-input-textarea-affix-wrapper, .ant-input {
+    background-color: rgb(30, 30, 30);
+    color: rgba(255, 255, 255, 0.95);
+  }
+
+  .mdresult {
+    border-color: #424242;
+  }
+
+  .shortcuts .ant-row, .help ul > li {
+    color: rgba(255, 255, 255, 0.85)
   }
 }
