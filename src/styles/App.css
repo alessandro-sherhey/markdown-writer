@@ -1,9 +1,98 @@
+/* Main container */
+main {
+  width: 100vw;
+  height: calc(100vw - 64px);
+  padding: 0 50px;
+  background-color: white;
+}
+
+/* Markdown Writer page */
+.md-writer {
+  & div.ant-row {
+    display: flex;
+    width: 100%;
+    height: 100%;
+  }
+
+  & div.ant-col {
+    width: 50%;
+    height: calc(100vw - 200px);
+    margin: 20px 0 0 0;
+
+  }
+
+  & div.col-title {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 0 0 20px 0;
+
+    & h2 {
+      margin: 0;
+    }
+
+    & div.ant-space-compact.margin-r-20 {
+      margin-right: 20px;
+    }
+
+    & button.ant-btn.margin-r-10 {
+      margin-right: 10px;
+    }
+  }
+}
+
+textarea {
+  /* height: calc(100vh - 190px);  Works only directly into JS */
+  padding: 5px 0;
+}
+
+/* Markdown live preview */
 .mdresult {
+  height: calc(100vh - 190px);
+  border: 1px solid rgb(215, 215, 215);
+  border-radius: 7px;
+  padding: 0px 13px;
+  overflow-y: auto;
+
   & h1 {
     font-size: 2em;
   }
 
   & h2 {
     font-size: 1.5em;
+  }
+}
+
+/* Help page */
+.help {
+  & a.ant-btn-link {
+    padding: 5px;
+  }
+}
+
+/* Shortcuts page */
+.shortcuts {
+  & div.shortcuts-title {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0;
+  }
+}
+
+/* About page */
+.about {
+  & a.ant-btn-link {
+    padding: 0;
+  }
+
+  & div.ant-col {
+    > a.ant-btn-link {
+      padding: 5px;
+    }
+
+    > div.ant-typography {
+      padding: 15px 0 0 0;
+    }
   }
 }

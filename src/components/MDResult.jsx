@@ -5,7 +5,9 @@ import { useSelector } from "react-redux";
 const MDResult = () => {
     const text = useSelector(state => state.md)
     return (
-        <div className="mdresult" style={{height: 'calc(100vh - 190px)', border: '1px solid rgb(215, 215, 215)', borderRadius: 7, padding: '0px 13px', overflowY: 'auto'}}>
+        <div className="mdresult" 
+        // style={{height: 'calc(100vh - 190px)', border: '1px solid rgb(215, 215, 215)', borderRadius: 7, padding: '0px 13px', overflowY: 'auto'}}
+        >
             <ReactMarkdown>
                 {text}
             </ReactMarkdown>

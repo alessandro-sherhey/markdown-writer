@@ -5,25 +5,19 @@ import React from "react";
 const Help = () => {
     return (
         <Content 
-            className='md-writer' 
-            style={{
-                width: '100vw',
-                height: 'calc(100vh - 64px)',
-                padding: '0 50px',
-                backgroundColor: 'white',
-            }}
+            className='content help' 
         >
             <Typography.Title>What's Markdown?</Typography.Title>
             <Divider />
-            <Typography.Paragraph style={{fontStyle: ''}}>
+            <Typography.Paragraph>
                 Markdown is a lightweight markup language for creating formatted text using a plain-text editor. John Gruber created Markdown in 2004 as a markup language that is appealing to human readers in its source code form. Markdown is widely used in blogging, instant messaging, online forums, collaborative software, documentation pages, and readme files. 
-                <Button type="link" href="https://en.wikipedia.org/wiki/Markdown" target="_blank" rel="noreferrer" style={{padding: 5}}>(Wikipedia)</Button>
+                <Button type="link" href="https://en.wikipedia.org/wiki/Markdown" target="_blank" rel="noreferrer">(Wikipedia)</Button>
             </Typography.Paragraph>
 
             <Typography.Paragraph>
                 Using Markdown is different than using a WYSIWYG (What You See Is What You Get) editor. In an application like Microsoft Word, you click buttons to format words and phrases, and the changes are visible immediately. Markdown isn’t like that. When you create a Markdown-formatted file, you add Markdown syntax to the text to indicate which words and phrases should look different.
                 For example, to denote a heading, you add a number sign before it (e.g., # Heading One). Or to make a phrase bold, you add two asterisks before and after it (e.g., **this text is bold**). It may take a while to get used to seeing Markdown syntax in your text, especially if you’re accustomed to WYSIWYG applications.
-                <Button type="link" href="https://www.markdownguide.org/getting-started/" target="_blank" rel="noreferrer" style={{padding: 5}}>(markdownguide.org)</Button>
+                <Button type="link" href="https://www.markdownguide.org/getting-started/" target="_blank" rel="noreferrer">(markdownguide.org)</Button>
             </Typography.Paragraph>
 
             <Typography.Paragraph>
@@ -42,12 +36,12 @@ const Help = () => {
             </ul>
 
             <Typography.Paragraph>
-                As you can see, it's not so difficult! :{")"} You can quite easily remember the basic stuff, or you can use online editors such as <Button type="link" href="https://stackedit.io/app#" target="_blank" rel="noreferrer" style={{padding: 5}}>StackEdit</Button>, or this ;{")"}
+                As you can see, it's not so difficult! :{")"} You can quite easily remember the basic stuff, or you can use online editors such as <Button type="link" href="https://stackedit.io/app#" target="_blank" rel="noreferrer">StackEdit</Button>, or this ;{")"}
             </Typography.Paragraph>
 
             <Typography.Paragraph>
                 If you want to learn alternative syntax (such as using + instead of * for unordered lists) you can go to 
-                <Button type="link" href="https://www.markdownguide.org/basic-syntax/" target="_blank" rel="noreferrer" style={{padding: 5}}>markdownguide.org</Button>, which I found useful <i>(not sponsored)</i>.
+                <Button type="link" href="https://www.markdownguide.org/basic-syntax/" target="_blank" rel="noreferrer">markdownguide.org</Button>, which I found useful <i>(not sponsored)</i>.
             </Typography.Paragraph>
         </Content>
     )

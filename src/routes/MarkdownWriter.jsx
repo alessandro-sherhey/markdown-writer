@@ -126,30 +126,17 @@ const MarkdownWriter = () => {
 
     return (
         <Content 
-            className='md-writer' 
-            style={{
-                width: '100vw',
-                height: 'calc(100vh - 64px)',
-                padding: '0 50px',
-                backgroundColor: 'white',
-            }}
+            className='content md-writer' 
         >
                 {contextHolder}
-                <Row
-                    gutter={ {xs: 8, sm: 16, md: 24, lg: 32} }
-                    style={{
-                        display: 'flex',
-                        width: '100%',
-                        height: '100%'
-                    }}
-                >
-                    <Col span={50} style={{width: '50%', height: 'calc(100vw - 200px)', margin: '20px 0 0 0'}}>
-                        <div style={{display: 'flex', justifyContent: 'space-between', alignItems: 'center', margin: '0 0 20px 0'}}>
+                <Row gutter={ {xs: 8, sm: 16, md: 24, lg: 32} }>
+                    <Col span={50}>
+                        <div className="col-title">
                             <div>
-                                <Typography.Title level={2} style={{margin: '0'}}>Your Text</Typography.Title>
+                                <Typography.Title level={2}>Your Text</Typography.Title>
                             </div>
                             <div>
-                                <Space.Compact style={{marginRight: 20}}>
+                                <Space.Compact className="margin-r-20">
                                     <Tooltip title={isAppleDevice ? "Heading (⌃ + 1)" : "Heading (Alt + 1)"}>
                                         <Button
                                             icon={<FontSizeOutlined />}
@@ -158,7 +145,7 @@ const MarkdownWriter = () => {
                                         />
                                     </Tooltip>
                                 </Space.Compact>
-                                <Space.Compact style={{marginRight: 20}}>
+                                <Space.Compact className="margin-r-20">
                                     <Tooltip title={isAppleDevice ? "Bold (⌘ + B)" : "Bold (Ctrl + B)"}>
                                         <Button 
                                             icon={<BoldOutlined />}
@@ -181,7 +168,7 @@ const MarkdownWriter = () => {
                                         />
                                     </Tooltip>
                                 </Space.Compact>
-                                <Space.Compact style={{marginRight: 20}}>
+                                <Space.Compact className="margin-r-20">
                                     <Tooltip title={isAppleDevice ? "Blockquote" : "Blockquote (Alt + Q)"}>
                                         <Button
                                             icon={<DoubleRightOutlined />}
@@ -204,7 +191,7 @@ const MarkdownWriter = () => {
                                         />
                                     </Tooltip>
                                 </Space.Compact>
-                                <Space.Compact style={{marginRight: 20}}>
+                                <Space.Compact className="margin-r-20">
                                     <Tooltip title={isAppleDevice ? "Link" : "Link (Alt + L)"}>
                                         <Button 
                                             icon={<LinkOutlined />}
@@ -229,22 +216,22 @@ const MarkdownWriter = () => {
                         </div>
                         <TextArea 
                             placeholder="Write here and use the buttons on the top!"
-                            style={{height: 'calc(100vh - 190px)', padding: '5px 0'}}
                             value={text}
                             onChange={e => updateTextArea(e)}
                             showCount={true}
+                            style={{height: 'calc(100vh - 190px)'}}
                         />
                     </Col>
-                    <Col span={50} style={{width: '50%', height: 'calc(100% - 200px)', margin: '20px 0 0 0'}}>
-                    <div style={{display: 'flex', justifyContent: 'space-between', alignItems: 'center', margin: '0 0 20px 0'}}>
+                    <Col span={50}>
+                    <div className="col-title">
                             <div>
-                                <Typography.Title level={2} style={{margin: '0'}}>Markdown</Typography.Title>
+                                <Typography.Title level={2}>Markdown</Typography.Title>
                             </div>
                             <div>
                                 <Button 
+                                    className="margin-r-10"
                                     disabled={disableButtons}
                                     icon={<DownloadOutlined />}
-                                    style={{marginRight: 10}}
                                     onClick={downloadFile}
                                 >Download File</Button>
                                 <Button 
