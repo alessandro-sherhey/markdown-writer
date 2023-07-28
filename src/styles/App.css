@@ -1,9 +1,10 @@
 /* Main container */
 main {
   width: 100vw;
-  height: calc(100vw - 64px);
+  height: calc(100vh - 64px);
   padding: 0 50px;
   background-color: white;
+  overflow: hidden;
 }
 
 /* Markdown Writer page */
