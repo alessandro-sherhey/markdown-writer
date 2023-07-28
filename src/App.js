@@ -117,9 +117,6 @@ const App = () => {
             <Menu
               theme="light"
               mode="horizontal"
-              style={{
-                backgroundColor: 'rgb(250, 250, 250)'
-              }}
             >
               <Menu.Item key="writer" icon={<CodeOutlined />}>
                 <NavLink to="/writer">Markdown Writer</NavLink>

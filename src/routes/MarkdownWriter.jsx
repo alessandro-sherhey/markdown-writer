@@ -17,6 +17,8 @@ const MarkdownWriter = () => {
     const userAgent = navigator.userAgent.toLowerCase()
     const [isAppleDevice, setIsAppleDevice] = useState(false);
 
+    const [textAreaStyle, setTextAreaStyle] = useState({height: 'calc(100vh - 190px)'})
+
     useEffect(() => {
         if (userAgent.indexOf('macintosh') !== -1) {
             setIsAppleDevice(true)
@@ -124,6 +126,27 @@ const MarkdownWriter = () => {
         }
     })
 
+    useEffect(() => {
+        const setTextArea = () => {
+            console.log(window.innerWidth)
+            if (window.innerWidth <= 700) {
+                setTextAreaStyle({height: 300})
+            } else if (window.innerWidth <= 1003) {
+                setTextAreaStyle({height: 'calc(100vh - 262px)'})
+            } else if (window.innerWidth <= 1200) {
+                setTextAreaStyle({height: 'calc(100vh - 220px)'})
+            } else {
+                setTextAreaStyle({height: 'calc(100vh - 190px)'})
+            }
+        }
+
+        window.addEventListener("resize", setTextArea)
+
+        return () => {
+            window.removeEventListener("resize", setTextArea)
+        }
+    }, [])
+
     return (
         <Content 
             className='content md-writer' 
@@ -133,9 +156,12 @@ const MarkdownWriter = () => {
                     <Col span={50}>
                         <div className="col-title">
                             <div>
-                                <Typography.Title level={2}>Your Text</Typography.Title>
+                                <Typography.Title 
+                                    level={2}
+                                    className="responsive-no-bottom-margin"
+                                >Your Text</Typography.Title>
                             </div>
-                            <div>
+                            <div className="editor-btns">
                                 <Space.Compact className="margin-r-20">
                                     <Tooltip title={isAppleDevice ? "Heading (⌃ + 1)" : "Heading (Alt + 1)"}>
                                         <Button
@@ -219,7 +245,7 @@ const MarkdownWriter = () => {
                             value={text}
                             onChange={e => updateTextArea(e)}
                             showCount={true}
-                            style={{height: 'calc(100vh - 190px)'}}
+                            style={textAreaStyle}
                         />
                     </Col>
                     <Col span={50}>
